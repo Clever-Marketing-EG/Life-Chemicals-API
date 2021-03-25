@@ -95,10 +95,7 @@ class MetaController extends Controller
             'body' => 'required|min:3|string',
             'from' => 'required|min:3|string'
         ]);
-        $email = $data['email'];
-        $body = $data['body'];
-        $from = $data['from'];
 
-        Mail::to('tech@clevermarketing-eg.com')->send(new ContactEmail($email, $body, $from));
+        Mail::to('tech@clevermarketing-eg.com')->send(new ContactEmail($data));
     }
 }
