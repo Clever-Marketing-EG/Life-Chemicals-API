@@ -97,5 +97,10 @@ class MetaController extends Controller
         ]);
 
         Mail::to('tech@clevermarketing-eg.com')->send(new ContactEmail($data));
+        
+        return response()->json([
+            'success' => true,
+            'data' => "Thanks for cotacting us!"
+        ]);
     }
 }
