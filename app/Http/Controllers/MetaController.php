@@ -8,6 +8,9 @@ use App\Models\Meta;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactEmail;
+
 
 class MetaController extends Controller
 {
@@ -58,6 +61,7 @@ class MetaController extends Controller
         $request->validate([
             'name' => 'required|string|min:3',
             'content' => 'required|string|min:3',
+            'content_ar' => 'required|string|min:3',
             'type' => 'required|string|in:image,text'
         ]);
 
@@ -66,6 +70,7 @@ class MetaController extends Controller
         ]);
 
         $meta->content  = $request['content'];
+        $meta->content_ar  = $request['content_ar'];
         $meta->type = $request['type'];
         $meta->save();
 
@@ -82,4 +87,18 @@ class MetaController extends Controller
         return $arr;
     }
     
+
+    public function sendEmail(Request $request)
+    {
+        $data = $request->validate([
+            'email' => 'required|min:3|email|string',
+            'body' => 'required|min:3|string',
+            'from' => 'required|min:3|string'
+        ]);
+        $email = $data['email'];
+        $body = $data['body'];
+        $from = $data['from'];
+
+        Mail::to('tech@clevermarketing-eg.com')->send(new ContactEmail($email, $body, $from));
+    }
 }

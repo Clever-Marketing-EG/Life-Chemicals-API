@@ -33,6 +33,7 @@ Route::get('categories/search/{searchTerm}', [SearchController::class, 'categori
 // Articles Routes
 Route::apiResource('articles', ArticleController::class);
 Route::get('articles/search/{searchTerm}', [SearchController::class, 'articles'])->name('search.articles');
+
 // Dashboard meta routes
 Route::group([
     'prefix' => 'meta'
@@ -63,7 +64,7 @@ Route::group([
     Route::get('/image/{id}', [MetaController::class, 'imagea']);
     Route::get('/image/page/{page}', [MetaController::class, 'imagep']);
     Route::get('/image', [MetaController::class, 'imgs']);
-    Route::post('/', [MetaController::class, 'store'])->middleware('auth:api');
+    Route::post('/add', [MetaController::class, 'store'])->middleware('auth:api');
     Route::get('/meta', [MetaController::class, 'collected']);
 });
 
@@ -83,3 +84,6 @@ Route::group([
     Route::post('/reset-password', [AuthController::class, 'passwordResetSubmission'])->name('password.update');
 });
 Route::post('/sheet',[SheetsController::class,'sheets'])->name('sheet.upload');
+Route::get('/latestnews',[ArticleController::class,'latest'])->name('latest.news');
+
+Route::post('/contact-us', [MetaController::class, 'sendEmail'])->name('email');

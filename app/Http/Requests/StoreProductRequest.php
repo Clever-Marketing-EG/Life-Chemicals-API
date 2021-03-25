@@ -24,8 +24,8 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'min:3', 'string', 'unique:products'],
-            'name_ar' => ['required', 'min:3', 'string', 'unique:products'],
+            'name' => ['required', 'min:3', 'string'],
+            'name_ar' => ['required', 'min:3', 'string'],
             'description' => ['required', 'string'],
             'description_ar' => ['required', 'string'],
             'uses' => ['required', 'string'],

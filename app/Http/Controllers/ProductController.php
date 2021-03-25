@@ -11,7 +11,7 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-define('PRODUCTS_PER_PAGE', 20);
+define('PRODUCTS_PER_PAGE', 200);
 
 class ProductController extends Controller
 {

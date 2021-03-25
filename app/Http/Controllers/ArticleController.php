@@ -21,9 +21,9 @@ class ArticleController extends Controller
      *
      * @return void
      */
-    public function __construct() {
-        $this->middleware('auth:api', ['except' => ['index', 'show', 'meta']]);
-    }
+    // public function __construct() {
+    //     $this->middleware('auth:api', ['except' => ['index', 'show', 'meta']]);
+    // }
 
     /**
      * Display a listing of the resource.
@@ -35,7 +35,11 @@ class ArticleController extends Controller
         $articles = Article::paginate(ARTICLES_PER_PAGE);
         return ArticleResource::collection($articles);
     }
-
+public function latest()
+    {
+        $articles = Article::latest()->take(3)->get();
+        return  $articles;
+    }
     /**
      * Store a newly created resource in storage.
      *
