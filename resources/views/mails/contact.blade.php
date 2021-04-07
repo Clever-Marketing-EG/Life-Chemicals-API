@@ -11,33 +11,33 @@
         #outlook a {
             padding: 0;
         }
-        
+
         .ReadMsgBody {
             width: 100%;
         }
-        
+
         .ExternalClass {
             width: 100%;
         }
-        
+
         .ExternalClass * {
             line-height: 100%;
         }
-        
+
         body {
             margin: 0;
             padding: 0;
             -webkit-text-size-adjust: 100%;
             -ms-text-size-adjust: 100%;
         }
-        
+
         table,
         td {
             border-collapse: collapse;
             mso-table-lspace: 0pt;
             mso-table-rspace: 0pt;
         }
-        
+
         img {
             border: 0;
             height: auto;
@@ -46,7 +46,7 @@
             text-decoration: none;
             -ms-interpolation-mode: bicubic;
         }
-        
+
         p {
             display: block;
             margin: 13px 0;
@@ -64,16 +64,16 @@
         }
     </style>
     <!--<![endif]-->
-    <!--[if mso]> 
-		<xml> 
-			<o:OfficeDocumentSettings> 
-				<o:AllowPNG/> 
-				<o:PixelsPerInch>96</o:PixelsPerInch> 
-			</o:OfficeDocumentSettings> 
+    <!--[if mso]>
+		<xml>
+			<o:OfficeDocumentSettings>
+				<o:AllowPNG/>
+				<o:PixelsPerInch>96</o:PixelsPerInch>
+			</o:OfficeDocumentSettings>
 		</xml>
 		<![endif]-->
-    <!--[if lte mso 11]> 
-		<style type="text/css"> 
+    <!--[if lte mso 11]>
+		<style type="text/css">
 			.outlook-group-fix{width:100% !important;}
 		</style>
 		<![endif]-->
@@ -86,7 +86,7 @@
                 width: auto !important;
             }
         }
-        
+
         @media only screen and (min-width:480px) {
             .dys-column-per-100 {
                 width: 100.000000% !important;
@@ -118,6 +118,13 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <td align="left" style="font-size:0px;padding:0px 25px;word-break:break-word;">
+                                                <div style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
+                                                    Subject: {{$data['subject']}}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word; padding-bottom: 2rem;">
                                                 <div style="color:#187272;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:20px;line-height:20px;text-align:center;">
                                                     {{$data['body']}}
@@ -127,7 +134,7 @@
                                         <tr>
                                             <td align="left" style="font-size:0px;padding:0px 25px;word-break:break-word;">
                                                 <div style="color:white;font-family:'Droid Sans', 'Helvetica Neue', Arial, sans-serif;font-size:16px;line-height:20px;">
-                                                    {{$data['from']}}
+                                                    From: {{$data['from']}}
                                                 </div>
                                             </td>
                                         </tr>

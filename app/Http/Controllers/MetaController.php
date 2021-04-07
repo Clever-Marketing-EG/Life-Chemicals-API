@@ -29,31 +29,31 @@ class MetaController extends Controller
     }
     public function allinpage($page)
     {
-        return Meta::where("page",$page)->get();
+        return Meta::where("page", $page)->get();
     }
     public function text()
     {
-        return Meta::where("type","text")->get();
+        return Meta::where("type", "text")->get();
     }
     public function texta($id)
     {
-        return Meta::where("id",$id)->where("type","text")->get();
+        return Meta::where("id", $id)->where("type", "text")->get();
     }
     public function imagea($id)
     {
-        return Meta::where("id",$id)->where("type","image")->get();
+        return Meta::where("id", $id)->where("type", "image")->get();
     }
     public function imagep($page)
     {
-        return Meta::where("page",$page)->where("type","image")->get();
+        return Meta::where("page", $page)->where("type", "image")->get();
     }
     public function textp($page)
     {
-        return Meta::where("page",$page)->where("type","text")->get();
+        return Meta::where("page", $page)->where("type", "text")->get();
     }
     public function imgs()
     {
-        return Meta::where("type","image")->get();
+        return Meta::where("type", "image")->get();
     }
 
     public function store(Request $request): JsonResponse
@@ -76,27 +76,29 @@ class MetaController extends Controller
 
         return response()->json([
             "success" => true,
-            "data"=> $meta
+            "data" => $meta
         ]);
     }
-    public function collected(){
+    public function collected()
+    {
         $artcles = Article::all()->Count();
         $products = Product::all()->Count();
         $Category = Category::all()->Count();
-        $arr = array($artcles,$products,$Category);
+        $arr = array($artcles, $products, $Category);
         return $arr;
     }
-    
+
 
     public function sendEmail(Request $request)
     {
         $data = $request->validate([
             'email' => 'required|min:3|email|string',
             'body' => 'required|min:3|string',
-            'from' => 'required|min:3|string'
+            'from' => 'required|min:3|string',
+            'subject' => 'required|min:3|string'
         ]);
 
-        Mail::to('tech@clevermarketing-eg.com')->send(new ContactEmail($data));
+        Mail::to('info@lifecheme.com')->send(new ContactEmail($data));
 
         return response()->json([
             'success' => true,
