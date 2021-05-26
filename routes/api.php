@@ -37,7 +37,7 @@ Route::get('articles/search/{searchTerm}', [SearchController::class, 'articles']
 // Dashboard meta routes
 Route::group([
     'prefix' => 'meta'
-], function() {
+], function () {
     Route::get('products', [ProductController::class, 'meta'])->name('meta.products');
     Route::get('categories', [CategoryController::class, 'meta'])->name('meta.categories');
     Route::get('articles', [ArticleController::class, 'meta'])->name('meta.articles');
@@ -45,7 +45,7 @@ Route::group([
 // Images routes
 Route::group([
     'prefix' => 'images'
-], function() {
+], function () {
     Route::post('products', [ImagesController::class, 'products'])->name('images.products');
     Route::post('categories', [ImagesController::class, 'categories'])->name('images.categories');
     Route::post('articles', [ImagesController::class, 'articles'])->name('images.articles');
@@ -55,7 +55,7 @@ Route::group([
 // Data routes
 Route::group([
     'prefix' => 'data'
-], function() {
+], function () {
     Route::get('/all', [MetaController::class, 'all']);
     Route::get('/all/{page}', [MetaController::class, 'allinpage']);
     Route::get('/text', [MetaController::class, 'text']);
@@ -80,10 +80,10 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh'])->name('auth.refresh');
     Route::get('/user-profile', [AuthController::class, 'userProfile'])->name('auth.profile');
     Route::post('/forgot-password', [AuthController::class, 'sendResetPasswordEmail'])->name('password.reset');
-    Route::get('/forgot-password', [AuthController::class, 'passwordResetForm'])->name('password.reset');
+    Route::get('/forgot-password', [AuthController::class, 'passwordResetForm'])->name('password.forgot');
     Route::post('/reset-password', [AuthController::class, 'passwordResetSubmission'])->name('password.update');
 });
-Route::post('/sheet',[SheetsController::class,'sheets'])->name('sheet.upload');
-Route::get('/latestnews',[ArticleController::class,'latest'])->name('latest.news');
+Route::post('/sheet', [SheetsController::class, 'sheets'])->name('sheet.upload');
+Route::get('/latestnews', [ArticleController::class, 'latest'])->name('latest.news');
 
 Route::post('/contact-us', [MetaController::class, 'sendEmail'])->name('email');
