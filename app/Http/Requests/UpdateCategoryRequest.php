@@ -24,8 +24,8 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['min:3', 'string', 'unique:categories'],
-            'name_ar' => ['min:3', 'string', 'unique:categories'],
+            'name' => ['min:3', 'string', 'categories'],
+            'name_ar' => ['min:3', 'string', 'categories'],
             'description' => [ 'min:3', 'string'],
             'description_ar' => [ 'min:3', 'string'],
             'image_url' => ['url']

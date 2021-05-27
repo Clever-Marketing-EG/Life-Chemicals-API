@@ -24,8 +24,8 @@ class UpdateArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['min:3', 'string', 'unique:articles'],
-            'title_ar' => ['min:3', 'string', 'unique:articles'],
+            'title' => ['min:3', 'string'],
+            'title_ar' => ['min:3', 'string'],
             'content' => [ 'min:3', 'string'],
             'content_ar' => [ 'min:3', 'string'],
             'image_url' => ['url']

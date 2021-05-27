@@ -24,8 +24,8 @@ class StoreArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['required', 'min:3', 'string', 'unique:articles'],
-            'title_ar' => ['required', 'min:3', 'string', 'unique:articles'],
+            'title' => ['required', 'min:3', 'string', 'articles'],
+            'title_ar' => ['required', 'min:3', 'string', 'articles'],
             'content' => ['required', 'min:3', 'string'],
             'content_ar' => ['required', 'min:3', 'string'],
             'image_url' => ['required', 'url']
